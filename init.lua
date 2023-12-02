@@ -23,9 +23,9 @@ else
       request = "launch",
       name = "Listen for wp Xdebug",
       port = 9003,
-      localSourceRoot = "/home/user/sites/vvv/www/wp/public_html/",
+      localSourceRoot = "/home/user/sites/vvv/www/wordpress/public_html/",
       -- localSourceRoot = vim.fn.expand("%:p:h").."/",
-      serverSourceRoot = "/srv/www/wp/public_html/",
+      serverSourceRoot = "/srv/www/wordpress/public_html/",
     },
   }
   --  dap.defaults.fallback.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
