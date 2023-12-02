@@ -14,3 +14,9 @@ Request intercepted by XDebug with step-debugging, interactive evaluation etc:
 ![Screenshot_20231202_202149](https://github.com/jasalt/nvim/assets/2306521/e618510e-e584-4144-942a-52bdc04bfe93)
 
 More documentation about PHP IDE config on [LazyVim discussions](https://github.com/LazyVim/LazyVim/discussions/645). Code is not very polished but it is working and I might come back to it at some point. 
+
+# Disclaimer
+
+Made by a person who is quite new to NeoVim. Includes mindlessly copy pasted code from various source. Refer to LazyVim docs and discussions etc to understand the overall structure better.
+
+Readme, repo commit messages and some parts of code included are written with Emacs.
