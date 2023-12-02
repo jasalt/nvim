@@ -3,10 +3,10 @@
 require("config.lazy")
 
 if vim.g.vscode then
-  -- VSCode extension
+  -- Running VSCode extension, skip loading DAP config as VSCode had it's own debugging facilities
+  -- and things break otherwise.
 else
-  -- ordinary neov m
-  -- https://github.com/LazyVim/LazyVim/discussions/645
+  -- ref: https://github.com/LazyVim/LazyVim/discussions/645
   -- the following settins assume you've installed the vscode-debug-php adapter using mason.nvim
   local dap = require("dap")
   dap.adapters.php = {
@@ -16,7 +16,7 @@ else
       vim.loop.os_homedir() .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
     },
   }
-  -- Config for a VVV (Vagrant) WordPress site (TODO)
+  -- Config for a VVV (Vagrant) WordPress site
   dap.configurations.php = {
     {
       type = "php",
@@ -28,13 +28,8 @@ else
       serverSourceRoot = "/srv/www/wordpress/public_html/",
     },
   }
-  --  dap.defaults.fallback.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
   dap.defaults.php.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
 
-  --dap.defaults.fallback.exception_breakpoints = { { "Notice", "Warning", "Error", "Exception" } }
-  -- dap.defaults.fallback.exception_breakpoints = { "raised" }
-  --  dap.set_exception_breakpoints("default")
-  --  require'dap'.set_exception_breakpoints()
   --  vim.api.nvim_set_keymap("n", "<leader><S-F5>", ":DapRestartFrame<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader><F5>", ":DapContinue<CR>", { noremap = true, silent = true })
 
@@ -52,7 +47,7 @@ else
   vim.api.nvim_set_keymap("n", "<s-F11>", ":DapStepOut<CR>", { noremap = true, silent = true })
   --  vim.api.nvim_set_keymap("n", "<leader><F5>", ":DapContinue<CR>", { noremap = true })
   --  vim.api.nvim_set_keymap("n", "<F10>", ":DapUiToggle<CR>", { noremap = true })
-  --require("dap.ext.vscode").load_launchjs(vim.fn.getcwd() .. "/.vscode/launch.json", {})
+  --require("dap.ext.vscode").load_launchjs(vim.fn.getcwd() .. "/.vscode/launch.json", {})  -- ???
 
   -- TODO Disable Autoformat ?
   -- https://github.com/LazyVim/LazyVim/issues/17#issuecomment-1554440802
