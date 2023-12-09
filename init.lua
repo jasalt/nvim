@@ -21,11 +21,11 @@ else
     {
       type = "php",
       request = "launch",
-      name = "Listen for wp Xdebug",
+      name = "Listen for VVV Xdebug",
       port = 9003,
-      localSourceRoot = "/home/user/sites/vvv/www/wordpress/public_html/",
+      localSourceRoot = "/home/user/sites/vvv/www/",
       -- localSourceRoot = vim.fn.expand("%:p:h").."/",
-      serverSourceRoot = "/srv/www/wordpress/public_html/",
+      serverSourceRoot = "/srv/www/",
     },
   }
   dap.defaults.php.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
