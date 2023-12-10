@@ -41,6 +41,10 @@ else
     require("dap").set_exception_breakpoints({ "Notice", "Warning", "Error", "Exception" })
   end, { desc = "Stop on all" })
 
+  vim.keymap.set("n", "<leader>d0", function()
+    require("dap").set_exception_breakpoints({ })
+  end, { desc = "Stop on nothing" })
+
   --  vim.api.nvim_set_keymap("n", "<leader><C-S-F5>", ":DapTerminate<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<F10>", ":DapStepOver<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<F11>", ":DapStepInto<CR>", { noremap = true, silent = true })
