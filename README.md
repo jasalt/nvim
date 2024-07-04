@@ -91,5 +91,7 @@ More notes while figuring this out on [LazyVim discussions](https://github.com/L
 
 ## Todo
 
-- how to run eval configuration functions during runtime?
-- decent git integration, included lazygit is not on magit level, maybe fugitive?
+- how to eval configuration functions during runtime?
+- fix indenting issues
+  - https://neovim.io/doc/user/indent.html#_html
+  - https://www.josean.com/posts/nvim-treesitter-and-textobjects
