@@ -13,9 +13,35 @@ Tested mainly with PHP and secondarily with Python.
 - PHP Intelephense LSP with k&r formatting option `lua/plugins/lsp.lua` (for WP code style)
 - VSCode nvim plugin aware DAP setup `init.lua`
 
+# Install notes
+## Usage with `tmux`
+Run `:checkhealth` command to see possible issues with configuration.
+
+### Example configuration for truecolor support in case of color rendering fails (tmux 3.0a)
+
+```
+# ~/.tmux.conf
+
+set -sg escape-time 10
+set-option -g focus-events on
+
+# True color settings
+set -g default-terminal "screen-256color"
+set -ag terminal-overrides ",$TERM:Tc"
+```
+### Nerdicons / icons in file browser
+
+Custom font icons may not load with messed up locale configuration. Running `tmux` with `-u` flag can help as temporary fix eg. `tmux -u a`.
+
+## Usage without access to C-compiler (experimental)
+
+Zig compiler (https://ziglang.org/download/) is easy to install to path, but for some tree-sitter parsers that fail compiling with it, they can be compiled elsewhere and moved to nvim install path eg. with extracted release archive in `nvim-linux64/lib/nvim/parser/`. 
+
+Eg. `rsync -av ~/.local/share/nvim/lazy/nvim-treesitter/parser/twig.so <hostname>:~/bin/nvim-linux64/lib/nvim/parser/`.
+
 # Debugging PHP
 
-Nvim should be started in WordPress root folder so that LSP finds all definitions etc. 
+Nvim *should be started in WordPress root folder* so that LSP finds all definitions etc. 
 Afterwards sidebar tree view root can be adjusted with `.` to hide unnecessary files.
 
 Default breakpoints on exceptions, errors etc. can be modified in `init.lua` by setting `dap.defaults.php.exception_breakpoints` value.
