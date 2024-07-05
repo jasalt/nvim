@@ -14,6 +14,11 @@ Tested mainly with PHP and secondarily with Python.
 - VSCode nvim plugin aware DAP setup `init.lua`
 
 # Install notes
+
+```
+git clone https://github.com/jasalt/nvim.git ~/.config/nvim
+nvim
+```
 ## Usage with `tmux`
 Run `:checkhealth` command to see possible issues with configuration.
 
